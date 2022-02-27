@@ -32,15 +32,15 @@ button{
   }
   
   /* Create four equal columns that sits next to each other */
-  .column {
+  /* .column {
     -ms-flex: 25%; /* IE10 */
-    flex: 25%;
+    /* flex: 25%;
     max-width: 25%;
     padding: 0 4px;
 
     vertical-align: middle;
     width: 100%;
-  }
+  } */ 
   
   /* .column img {
     margin-top: 8px;
@@ -49,13 +49,13 @@ button{
   } */
   
   /* Responsive layout - makes a two column-layout instead of four columns */
-  @media screen and (max-width: 1200px) {
+  /* @media screen and (max-width: 1200px) { */
     .column {
       -ms-flex: 33%;
       flex: 33%;
       max-width: 33%;
     }
-  }
+  /* } */
 
   @media screen and (max-width: 900px) {
     .column {
