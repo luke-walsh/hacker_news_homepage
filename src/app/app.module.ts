@@ -1,3 +1,4 @@
+import { NavbarComponent } from './navbar/navbar.component';
 import { PostComponent } from './post/post.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -10,7 +11,8 @@ import { GalleryComponent } from './gallery/gallery.component';
   declarations: [
     AppComponent,
     PostComponent,
-    GalleryComponent
+    GalleryComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
