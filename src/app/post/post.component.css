@@ -34,8 +34,14 @@
     color: black;
   }
 
+  .center-vert{
+    position: absolute;
+    top: 25%;
+  }
   
 .flip-card-back {
+  display: flex;
+  justify-content: center;
     background-color: grey;
     color: white;
     transform: rotateY(180deg);
