@@ -40,8 +40,37 @@
     </li>
 </ul> -->
 
-<div>
+<!-- <div>
     <div *ngFor = "let story of newStories">
         <post [storyId] =$any(story)></post>
+    </div>
+</div> -->
+
+<div id="parentDiv">
+    <div class="row" style="margin: 0 auto;"> 
+        <div class="column">
+            <post [storyId] =$any(newStories[0])></post>
+            <post [storyId] =$any(newStories[1])></post>
+            <post [storyId] =$any(newStories[2])></post>
+            <post [storyId] =$any(newStories[3])></post>
+        </div>
+        <div class="column">
+            <post [storyId] =$any(newStories[4])></post>
+            <post [storyId] =$any(newStories[5])></post>
+            <post [storyId] =$any(newStories[6])></post>
+            <post [storyId] =$any(newStories[7])></post>
+        </div>
+        <div class="column">
+            <post [storyId] =$any(newStories[0])></post>
+            <post [storyId] =$any(newStories[1])></post>
+            <post [storyId] =$any(newStories[2])></post>
+            <post [storyId] =$any(newStories[3])></post>
+        </div>
+        <div class="column">
+            <post [storyId] =$any(newStories[4])></post>
+            <post [storyId] =$any(newStories[5])></post>
+            <post [storyId] =$any(newStories[6])></post>
+            <post [storyId] =$any(newStories[7])></post>
+        </div>
     </div>
 </div>
