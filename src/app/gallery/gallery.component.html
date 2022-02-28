@@ -1,21 +1,21 @@
-<div id="parentDiv" style="padding-top: 60px;">
+<div *ngIf="topStories" id="parentDiv" style="padding-top: 60px;">
     <div class="row" style="margin: 0 auto;"> 
         <div class="column">
             <post [storyId] =$any(selectedStories[0])></post>
-            <post [storyId] =$any(selectedStories[1])></post>
-            <post [storyId] =$any(selectedStories[2])></post>
             <post [storyId] =$any(selectedStories[3])></post>
-        </div>
-        <div class="column">
-            <post [storyId] =$any(selectedStories[4])></post>
-            <post [storyId] =$any(selectedStories[5])></post>
             <post [storyId] =$any(selectedStories[6])></post>
-            <post [storyId] =$any(selectedStories[7])></post>
+            <post [storyId] =$any(selectedStories[9])></post>
         </div>
         <div class="column">
-            <post [storyId] =$any(selectedStories[8])></post>
-            <post [storyId] =$any(selectedStories[9])></post>
+            <post [storyId] =$any(selectedStories[1])></post>
+            <post [storyId] =$any(selectedStories[4])></post>
+            <post [storyId] =$any(selectedStories[7])></post>
             <post [storyId] =$any(selectedStories[10])></post>
+        </div>
+        <div class="column">
+            <post [storyId] =$any(selectedStories[2])></post>
+            <post [storyId] =$any(selectedStories[5])></post>
+            <post [storyId] =$any(selectedStories[8])></post>
             <post [storyId] =$any(selectedStories[11])></post>
         </div>
     </div> 
