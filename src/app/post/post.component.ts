@@ -8,6 +8,7 @@ import {HttpClient} from '@angular/common/http';
 })
 export class PostComponent implements OnInit{
   @Input() storyId: string = '30489003';
+  @Input() picIndex: number = 0;
   post: any;
 
   imgArray:string[] =[

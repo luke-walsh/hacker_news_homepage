@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import { StoriesService } from '../stories.service';
 
@@ -15,6 +15,8 @@ interface Post {
     url : string
 }
 
+
+
 @Component({
   selector: 'gallery',
   templateUrl: './gallery.component.html',
@@ -24,42 +26,39 @@ interface Post {
 
 
 export class GalleryComponent{
+    topSelected: boolean = true;
     topStories: any;
     newStories: any;
     selectedStories: any;
-    storyObjects: Post[] = [];
-    topSelected: boolean = true;
-    story:any;
-
     
      constructor(private _obj: StoriesService){}
 
      async ngOnInit(){
+         console.log(this.topSelected);
         (await this._obj.getTop()).subscribe(async (topData)=> {
             this.topStories = topData;
-            console.log(this.topStories);
+            // console.log(this.topStories);
             if(this.topSelected){
                 this.selectedStories = this.topStories;
-            //     for(var story in this.selectedStories){
-            //         (await this._obj.getStory(story)).subscribe((storyData)=> {
-            //             let post: Post = <Post>storyData;
-            //             this.storyObjects.push(post);
-            //          });
-            //     }
-            //     this.storyObjects.sort(function (a, b) {
-            //         return a.score - b.score;
-            //       });
-                
-            //     console.log('Story Objects:');
-            //     console.log(this.storyObjects);
              }
          });
          (await this._obj.getNew()).subscribe((newData)=> {
             this.newStories = newData;
-            console.log(this.newStories);
+            // console.log(this.newStories);
             if(!this.topSelected){
                 this.selectedStories = this.newStories.slice(0, 16);
              }
          });  
      }
+
+     topButtonClicked(){
+         if(!this.topSelected){
+            this.topSelected = true;
+         }
+     }
+     newButtonClicked(){
+        if(this.topSelected){
+           this.topSelected = false;
+        }
+    }
 }
