@@ -11,16 +11,22 @@ import {Component, ViewChild} from '@angular/core';
 export class NavbarComponent{
     @ViewChild(GalleryComponent)
     private galleryComponent!: GalleryComponent;
+    toggleSwitch: boolean = true;
+
 
     ngAfterViewInit() {}
 
     showTop(){
-        this.galleryComponent.topButtonClicked();
-        console.log(this.galleryComponent.topSelected);
+        if(!this.toggleSwitch){
+            console.log(this.toggleSwitch);
+            this.toggleSwitch = true;
+        }
     }
     showNew(){
-        this.galleryComponent.newButtonClicked();
-        console.log(this.galleryComponent.topSelected);
+        console.log(this.toggleSwitch);
+        if(this.toggleSwitch){
+            this.toggleSwitch = false;
+        }
     }
 
 }

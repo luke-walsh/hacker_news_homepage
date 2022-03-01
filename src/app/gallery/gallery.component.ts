@@ -26,7 +26,7 @@ interface Post {
 
 
 export class GalleryComponent{
-    topSelected: boolean = true;
+    @Input() topSelected: boolean = true;
     topStories: any;
     newStories: any;
     selectedStories: any;
@@ -49,6 +49,14 @@ export class GalleryComponent{
                 this.selectedStories = this.newStories.slice(0, 16);
              }
          });  
+     }
+
+     ngOnChanges(){
+        if(this.topSelected){
+            this.selectedStories = this.topStories;
+         }else{
+            this.selectedStories = this.newStories;
+         }
      }
 
      topButtonClicked(){
