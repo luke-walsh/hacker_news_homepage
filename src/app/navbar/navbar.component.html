@@ -4,5 +4,7 @@
     <li><button (click)="showTop()">Top</button></li>
     <li><button (click)="showNew()">New</button></li>
 </ul>
-<gallery [topSelected] = $any(toggleSwitch)></gallery>
-<div></div>
+<gallery [topSelected] = $any(toggleSwitch) [startSlice] = $any(firstIndex)></gallery>
+<div *ngIf="init">
+    <button (click)="nextPage()">Next Page</button>
+</div>

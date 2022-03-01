@@ -9,12 +9,16 @@ import {Component, ViewChild} from '@angular/core';
 })
 
 export class NavbarComponent{
-    @ViewChild(GalleryComponent)
-    private galleryComponent!: GalleryComponent;
+    // @ViewChild(GalleryComponent)
+    // private galleryComponent!: GalleryComponent;
     toggleSwitch: boolean = true;
+    firstIndex: number = 0;
+    init: boolean = false;
 
 
-    ngAfterViewInit() {}
+    constructor() {
+        this.init = true;
+    }
 
     showTop(){
         if(!this.toggleSwitch){
@@ -26,6 +30,12 @@ export class NavbarComponent{
         console.log(this.toggleSwitch);
         if(this.toggleSwitch){
             this.toggleSwitch = false;
+        }
+    }
+    nextPage(){
+        if(this.firstIndex < 484){
+            console.log(this.firstIndex);
+            this.firstIndex += 16;
         }
     }
 
