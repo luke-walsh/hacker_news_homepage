@@ -6,7 +6,7 @@ import { StoriesService } from '../stories.service';
 interface Post {
     by : string,
     descendants : number,
-    id : number,
+    idNumber : number,
     kids : number[],
     score : number,
     time : number,
@@ -27,7 +27,7 @@ export class GalleryComponent{
     topStories: any;
     newStories: any;
     selectedStories: any;
-    // selectedStoryObjects: Post[] = [];
+    storyObjects: Post[] = [];
     topSelected: boolean = true;
     story:any;
 
@@ -40,13 +40,18 @@ export class GalleryComponent{
             console.log(this.topStories);
             if(this.topSelected){
                 this.selectedStories = this.topStories;
-                for(var story in this.selectedStories){
-                    story.toString();
-                    (await this._obj.getStory(story)).subscribe((storyData)=> {
-                        // this.story = data;
-                        console.log(storyData);
-                     });
-                }
+            //     for(var story in this.selectedStories){
+            //         (await this._obj.getStory(story)).subscribe((storyData)=> {
+            //             let post: Post = <Post>storyData;
+            //             this.storyObjects.push(post);
+            //          });
+            //     }
+            //     this.storyObjects.sort(function (a, b) {
+            //         return a.score - b.score;
+            //       });
+                
+            //     console.log('Story Objects:');
+            //     console.log(this.storyObjects);
              }
          });
          (await this._obj.getNew()).subscribe((newData)=> {
@@ -55,70 +60,6 @@ export class GalleryComponent{
             if(!this.topSelected){
                 this.selectedStories = this.newStories.slice(0, 16);
              }
-         });
-        // (await this._obj.getStory('30477078')).subscribe((data)=> {
-        //     this.story = data;
-        //     console.log(this.story);
-        //  });
-
-         
+         });  
      }
-    
-
-         
-        //  console.log(_obj.getTop());
-        //  console.log('hello');
-        // http.get('https://hacker-news.firebaseio.com/v0/topstories.json?print=pretty').subscribe(response =>{
-        //     this.topStories = response;
-        //     this.topStories = this.topStories.slice(0, 16);
-        //     if(this.topSelected){
-        //         this.selectedStories = this.topStories;
-        //         for(var story in this.selectedStories){
-        //             this.addPost(story);
-        //         }
-        //     }
-        // })
-        // http.get('https://hacker-news.firebaseio.com/v0/newstories.json?print=pretty').subscribe(response =>{
-        //     this.newStories = response;
-        //     this.newStories = this.newStories.slice(0, 16);
-        //     if(!this.topSelected){
-        //         this.selectedStories = this.newStories;
-        //     }
-        // })
-    }
-
-
-
-    
-
-    // addPost(id: any){
-    //     String(id);
-    //     this.http.get('https://hacker-news.firebaseio.com/v0/item/' + id  + '.json?print=pretty')
-    //     .subscribe(response => {  
-    //         // console.log(response);
-    //         this.selectedStoryObjects.push(response);
-    //     });
-    // }
-
-    // changeStories(){
-    //     this.topSelected = !this.topSelected;
-    //     console.log(this.topSelected);
-    // }
-    // test(){
-    //     console.log('hi');
-    // }
-    
-// }
-
-
-// export class GalleryComponent{
-//     selectedStories: any = [];
-
-//     constructor(private _obj: TopStoriesService){
-        
-//     }
-//     ngOnInit(){
-//         this.selectedStories = this._obj.getData();
-//         this.selectedStories = this.selectedStories.slice(0, 16);
-//     }
-// }
+}
