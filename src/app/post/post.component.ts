@@ -49,29 +49,12 @@ export class PostComponent implements OnInit{
 
   constructor(private _obj: StoriesService){} 
 
-  // ngOnInit(): void {
-  //   this.storyId = this.storyId.toString();
-  //   this.http.get('https://hacker-news.firebaseio.com/v0/item/' + this.storyId  + '.json?print=pretty')
-  //   .subscribe(response => {
-  //       this.post = response;
-  //   });
-  // }
-
   async ngOnInit(): Promise<void> {
     this.storyId = this.storyId.toString();
     (await this._obj.getStory(this.storyId)).subscribe(async (data)=> {
       this.post = data;
    });
   }
-
-  // ngOnChanges(): void{
-  //   // this.storyId = this.storyId.toString();
-  //   this.http.get('https://hacker-news.firebaseio.com/v0/item/' + this.storyId  + '.json?print=pretty')
-  //   .subscribe(response => {
-  //       this.post = response;
-  //   });
-  //   console.log(this.post);
-  // }
 
   async ngOnChanges(): Promise<void> {
     // this.storyId = this.storyId.toString();

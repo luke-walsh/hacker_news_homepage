@@ -31,6 +31,7 @@ export class GalleryComponent{
     topStories: any;
     newStories: any;
     initialised: boolean = false;
+    alternatePic: number = 0;
     
     
      constructor(private _obj: StoriesService){}
@@ -49,14 +50,6 @@ export class GalleryComponent{
      ngOnChanges(){
          this.initialised = false;
          this.initialised = true;
-        //  if(this.startSlice > 0 && this.topSelected){
-        //     let allTopStories: [] = this.topStories;
-        //     this.topStories = allTopStories.slice(this.startSlice, this.startSlice+16);
-        //  }else if(this.startSlice > 0 && !this.topSelected){
-        //     let allNewStories: [] = this.newStories;
-        //     this.newStories = allNewStories.slice(this.startSlice, this.startSlice+16);
-        //  }
-
      }
 
      topButtonClicked(){

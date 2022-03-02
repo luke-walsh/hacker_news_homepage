@@ -16,7 +16,7 @@ export class NavbarComponent{
     init: boolean = false;
 
 
-    constructor() {
+    ngOnInit() {
         this.init = true;
     }
 

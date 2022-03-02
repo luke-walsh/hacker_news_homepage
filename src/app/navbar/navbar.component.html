@@ -1,11 +1,11 @@
 <ul>
-    <li><img src="assets/logo.svg" alt="logo" style="height: 20px;"></li>
-    <li><a class="active" href="#home">HackerNews</a></li>
+    <!-- <li><img src="assets/logo.svg" alt="logo" style="height: 20px;"></li> -->
+    <li><a class="active" href="">HackerNews</a></li>
     <li><button (click)="showTop()">Top</button></li>
     <li><button (click)="showNew()">New</button></li>
 </ul>
 <gallery [topSelected] = $any(toggleSwitch) [startSlice] = $any(firstIndex)></gallery>
-<div *ngIf="init">
-    <button *ngIf="firstIndex<484"(click)="nextPage()">Next Page</button>
-    <button *ngIf="firstIndex>0"(click)="previousPage()">Previous Page</button>    
+<div *ngIf="init" id="buttonBox">
+    <button *ngIf="firstIndex>0"(click)="previousPage()" class="bottomButtons" style="background-color: #AC3D6D;">Previous Page</button>
+    <button *ngIf="firstIndex<484"(click)="nextPage()" class="bottomButtons" style="background-color: #616EB9;">Next Page</button>    
 </div>
