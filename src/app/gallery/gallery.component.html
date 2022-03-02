@@ -1,45 +1,45 @@
-<div *ngIf="topStories" id="parentDiv">
+<div *ngIf="initialised" id="parentDiv">
     <div *ngIf ="topSelected" class="row" style="margin: 0 auto;"> 
         <div class="column">
-            <post [storyId] =$any(topStories[0]) [picIndex] = 0></post>
-            <post [storyId] =$any(topStories[3]) [picIndex] = 1></post>
-            <post [storyId] =$any(topStories[6]) [picIndex] = 2></post>
-            <post [storyId] =$any(topStories[9]) [picIndex] = 3></post>
+            <post [storyId] =$any(topStories[0+startSlice]) [picIndex] = 0></post>
+            <post [storyId] =$any(topStories[3+startSlice]) [picIndex] = 1></post>
+            <post [storyId] =$any(topStories[6+startSlice]) [picIndex] = 2></post>
+            <post [storyId] =$any(topStories[9+startSlice]) [picIndex] = 3></post>
         </div>
         <div class="column">
-            <post [storyId] =$any(topStories[1]) [picIndex] = 4></post>
-            <post [storyId] =$any(topStories[4]) [picIndex] = 5></post>
-            <post [storyId] =$any(topStories[7]) [picIndex] = 6></post>
-            <post [storyId] =$any(topStories[10]) [picIndex] = 7></post>
+            <post [storyId] =$any(topStories[1+startSlice]) [picIndex] = 4></post>
+            <post [storyId] =$any(topStories[4+startSlice]) [picIndex] = 5></post>
+            <post [storyId] =$any(topStories[7+startSlice]) [picIndex] = 6></post>
+            <post [storyId] =$any(topStories[10+startSlice]) [picIndex] = 7></post>
         </div>
         <div class="column">
-            <post [storyId] =$any(topStories[2]) [picIndex] = 8></post>
-            <post [storyId] =$any(topStories[5]) [picIndex] = 9></post>
-            <post [storyId] =$any(topStories[8]) [picIndex] = 10></post>
-            <post [storyId] =$any(topStories[11]) [picIndex] = 11></post>
+            <post [storyId] =$any(topStories[2+startSlice]) [picIndex] = 8></post>
+            <post [storyId] =$any(topStories[5+startSlice]) [picIndex] = 9></post>
+            <post [storyId] =$any(topStories[8+startSlice]) [picIndex] = 10></post>
+            <post [storyId] =$any(topStories[11+startSlice]) [picIndex] = 11></post>
         </div>
     </div> 
     <div *ngIf ="!topSelected"class="row" style="margin: 0 auto;"> 
         <div class="column">
-            <post [storyId] =$any(newStories[0]) [picIndex] = 12></post>
-            <post [storyId] =$any(newStories[3]) [picIndex] = 13></post>
-            <post [storyId] =$any(newStories[6]) [picIndex] = 14></post>
-            <post [storyId] =$any(newStories[9]) [picIndex] = 15></post>
+            <post [storyId] =$any(newStories[0+startSlice]) [picIndex] = 12></post>
+            <post [storyId] =$any(newStories[3+startSlice]) [picIndex] = 13></post>
+            <post [storyId] =$any(newStories[6+startSlice]) [picIndex] = 14></post>
+            <post [storyId] =$any(newStories[9+startSlice]) [picIndex] = 15></post>
         </div>
         <div class="column">
-            <post [storyId] =$any(newStories[1]) [picIndex] = 16></post>
-            <post [storyId] =$any(newStories[4]) [picIndex] = 17></post>
-            <post [storyId] =$any(newStories[7]) [picIndex] = 18></post>
-            <post [storyId] =$any(newStories[10]) [picIndex] = 19></post>
+            <post [storyId] =$any(newStories[1+startSlice]) [picIndex] = 16></post>
+            <post [storyId] =$any(newStories[4+startSlice]) [picIndex] = 17></post>
+            <post [storyId] =$any(newStories[7+startSlice]) [picIndex] = 18></post>
+            <post [storyId] =$any(newStories[10+startSlice]) [picIndex] = 19></post>
         </div>
         <div class="column">
-            <post [storyId] =$any(newStories[2]) [picIndex] = 21></post>
-            <post [storyId] =$any(newStories[5]) [picIndex] = 22></post>
-            <post [storyId] =$any(newStories[8]) [picIndex] = 23></post>
-            <post [storyId] =$any(newStories[11]) [picIndex] = 24></post>
+            <post [storyId] =$any(newStories[2+startSlice]) [picIndex] = 21></post>
+            <post [storyId] =$any(newStories[5+startSlice]) [picIndex] = 22></post>
+            <post [storyId] =$any(newStories[8+startSlice]) [picIndex] = 23></post>
+            <post [storyId] =$any(newStories[11+startSlice]) [picIndex] = 24></post>
         </div>
     </div> 
 </div>
 
-<div *ngIf="!topStories">Loading...</div>
+<div *ngIf="!initialised">Loading...</div>
 

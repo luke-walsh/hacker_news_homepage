@@ -9,8 +9,8 @@ import {Component, ViewChild} from '@angular/core';
 })
 
 export class NavbarComponent{
-    // @ViewChild(GalleryComponent)
-    // private galleryComponent!: GalleryComponent;
+    @ViewChild(GalleryComponent)
+    private galleryComponent!: GalleryComponent;
     toggleSwitch: boolean = true;
     firstIndex: number = 0;
     init: boolean = false;
@@ -24,18 +24,28 @@ export class NavbarComponent{
         if(!this.toggleSwitch){
             console.log(this.toggleSwitch);
             this.toggleSwitch = true;
+            this.firstIndex = 0;
         }
     }
     showNew(){
         console.log(this.toggleSwitch);
         if(this.toggleSwitch){
             this.toggleSwitch = false;
+            this.firstIndex = 0;
         }
     }
     nextPage(){
-        if(this.firstIndex < 484){
-            console.log(this.firstIndex);
+        if(this.firstIndex <= 484){
             this.firstIndex += 16;
+            this.galleryComponent.startSlice = this.firstIndex;
+            console.log(this.galleryComponent.startSlice);
+        }
+    }
+    previousPage(){
+        if(this.firstIndex >= 16){
+            this.firstIndex -= 16;
+            this.galleryComponent.startSlice = this.firstIndex;
+            console.log(this.galleryComponent.startSlice);
         }
     }
 

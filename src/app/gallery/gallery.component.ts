@@ -30,6 +30,7 @@ export class GalleryComponent{
     @Input() startSlice: number = 0;
     topStories: any;
     newStories: any;
+    initialised: boolean = false;
     
     
      constructor(private _obj: StoriesService){}
@@ -38,6 +39,7 @@ export class GalleryComponent{
          console.log(this.topSelected);
         (await this._obj.getTop()).subscribe(async (topData)=> {
             this.topStories = topData;
+            this.initialised = true;
          });
          (await this._obj.getNew()).subscribe((newData)=> {
             this.newStories = newData;
@@ -45,18 +47,16 @@ export class GalleryComponent{
      }
 
      ngOnChanges(){
-         if(this.startSlice > 0 && this.topSelected){
-            let allTopStories: [] = this.topStories;
-            this.topStories = allTopStories.slice(this.startSlice, this.startSlice+16);
-         }else if(this.startSlice > 0 && !this.topSelected){
-            let allNewStories: [] = this.newStories;
-            this.newStories = allNewStories.slice(this.startSlice, this.startSlice+16);
-         }
-        // if(this.topSelected){
-        //     this.topStories = this.topStories.slice(this.startSlice, this.startSlice+16);
-        //  }else{
-        //     this.newStories = this.newStories.slice(this.startSlice, this.startSlice+16);
+         this.initialised = false;
+         this.initialised = true;
+        //  if(this.startSlice > 0 && this.topSelected){
+        //     let allTopStories: [] = this.topStories;
+        //     this.topStories = allTopStories.slice(this.startSlice, this.startSlice+16);
+        //  }else if(this.startSlice > 0 && !this.topSelected){
+        //     let allNewStories: [] = this.newStories;
+        //     this.newStories = allNewStories.slice(this.startSlice, this.startSlice+16);
         //  }
+
      }
 
      topButtonClicked(){

@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
+import { StoriesService } from '../stories.service';
 
 @Component({
   selector: 'post',
@@ -46,13 +47,36 @@ export class PostComponent implements OnInit{
   randomNum: number = Math.floor(Math.random() * this.imgArray.length);
     
 
-  constructor(private http: HttpClient){} 
+  constructor(private _obj: StoriesService){} 
 
-  ngOnInit(): void {
+  // ngOnInit(): void {
+  //   this.storyId = this.storyId.toString();
+  //   this.http.get('https://hacker-news.firebaseio.com/v0/item/' + this.storyId  + '.json?print=pretty')
+  //   .subscribe(response => {
+  //       this.post = response;
+  //   });
+  // }
+
+  async ngOnInit(): Promise<void> {
     this.storyId = this.storyId.toString();
-    this.http.get('https://hacker-news.firebaseio.com/v0/item/' + this.storyId  + '.json?print=pretty')
-    .subscribe(response => {
-        this.post = response;
-    });
+    (await this._obj.getStory(this.storyId)).subscribe(async (data)=> {
+      this.post = data;
+   });
+  }
+
+  // ngOnChanges(): void{
+  //   // this.storyId = this.storyId.toString();
+  //   this.http.get('https://hacker-news.firebaseio.com/v0/item/' + this.storyId  + '.json?print=pretty')
+  //   .subscribe(response => {
+  //       this.post = response;
+  //   });
+  //   console.log(this.post);
+  // }
+
+  async ngOnChanges(): Promise<void> {
+    // this.storyId = this.storyId.toString();
+    (await this._obj.getStory(this.storyId)).subscribe(async (data)=> {
+      this.post = data;
+   });
   }
 }

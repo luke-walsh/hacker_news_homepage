@@ -6,5 +6,6 @@
 </ul>
 <gallery [topSelected] = $any(toggleSwitch) [startSlice] = $any(firstIndex)></gallery>
 <div *ngIf="init">
-    <button (click)="nextPage()">Next Page</button>
+    <button *ngIf="firstIndex<484"(click)="nextPage()">Next Page</button>
+    <button *ngIf="firstIndex>0"(click)="previousPage()">Previous Page</button>    
 </div>
