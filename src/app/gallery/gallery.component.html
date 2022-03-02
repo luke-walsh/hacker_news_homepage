@@ -1,3 +1,9 @@
+<!-- 
+    This file contains HTML for the Gallery Component, which creates 3 columns of posts. 
+    The indexes have been arranged to make them appear sequential on the screen, while allowing the use of responsive column styling.
+    'startSlice' is used to slice the original arrays of top and new posts, allowing user to load new articles in batches of 12.
+-->
+
 <div *ngIf="initialised" id="parentDiv">
     <div *ngIf ="topSelected" class="row" style="margin: 0 auto;"> 
         <div class="column">

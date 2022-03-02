@@ -1,11 +1,21 @@
+<!-- 
+    This file acts as the root of all the components. 
+    Navbar calls Gallery, Gallery in turn calls Post.
+    There is probably a better way of doing this in Angular using a service but this seemed like an efficient way of keeping the gallery within the scope of my buttons in the navbar and at the bottom of the page.
+ -->
 <ul>
-    <!-- <li><img src="assets/logo.svg" alt="logo" style="height: 20px;"></li> -->
     <li><a class="active" href="">HackerNews</a></li>
-    <li><button (click)="showTop()">Top</button></li>
-    <li><button (click)="showNew()">New</button></li>
+    <li><button *ngIf="!toggleSwitch"(click)="showTop()">Top</button></li>
+    <li><button *ngIf="toggleSwitch" (click)="showNew()">New</button></li>
 </ul>
-<gallery [topSelected] = $any(toggleSwitch) [startSlice] = $any(firstIndex)></gallery>
-<div *ngIf="init" id="buttonBox">
-    <button *ngIf="firstIndex>0"(click)="previousPage()" class="bottomButtons" style="background-color: #AC3D6D;">Previous Page</button>
-    <button *ngIf="firstIndex<484"(click)="nextPage()" class="bottomButtons" style="background-color: #616EB9;">Next Page</button>    
-</div>
+<body style="background-color:#D2D2D2;">
+    <div id="title">
+        <h1 *ngIf="toggleSwitch">Top Stories</h1>
+        <h1 *ngIf="!toggleSwitch">New Stories</h1>
+    </div>
+    <gallery [topSelected] = $any(toggleSwitch) [startSlice] = $any(firstIndex)></gallery>
+    <div *ngIf="init" id="buttonBox">
+        <button *ngIf="firstIndex>0"(click)="previousPage()" class="bottomButtons" style="background-color: #AC3D6D;">Previous Page</button>
+        <button *ngIf="firstIndex<488"(click)="nextPage()" class="bottomButtons" style="background-color: #616EB9;">Next Page</button>    
+    </div>
+</body>

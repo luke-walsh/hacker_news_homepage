@@ -12,6 +12,8 @@ export class PostComponent implements OnInit{
   @Input() picIndex: number = 0;
   post: any;
 
+  //Definitely not best practice to use image links here without at least having a local directory of backups.
+  // I had originally included a function to pull one of these at random for each of the posts but the results looked messy sometimes due to duplicates, so I went for a static index of the following array instead.
   imgArray:string[] =[
     'https://images.unsplash.com/photo-1504610926078-a1611febcad3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80',
     'https://images.unsplash.com/photo-1593508512255-86ab42a8e620?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8dGVjaHxlbnwwfDJ8MHx8&auto=format&fit=crop&w=500&q=60',
@@ -49,6 +51,7 @@ export class PostComponent implements OnInit{
 
   constructor(private _obj: StoriesService){} 
 
+  //I'm using the service here to make the api call for each post.
   async ngOnInit(): Promise<void> {
     this.storyId = this.storyId.toString();
     (await this._obj.getStory(this.storyId)).subscribe(async (data)=> {
@@ -56,8 +59,8 @@ export class PostComponent implements OnInit{
    });
   }
 
+  // api call is made again on changes.
   async ngOnChanges(): Promise<void> {
-    // this.storyId = this.storyId.toString();
     (await this._obj.getStory(this.storyId)).subscribe(async (data)=> {
       this.post = data;
    });

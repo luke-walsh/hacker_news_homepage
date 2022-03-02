@@ -1,3 +1,4 @@
+// This service handles all the necessary api calls for top stories, new stories and individual stories.
 import { HttpClient } from '@angular/common/http';
 import { ThisReceiver } from '@angular/compiler';
 import { Injectable } from '@angular/core';
